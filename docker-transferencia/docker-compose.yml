@@ -2,6 +2,38 @@ version: '3.7'
 
 services:
 
+  api_bacen:
+    container_name: api-bacen
+    image: springbatch-img
+    build:
+      context: ./apisMock/api-bacen/
+      dockerfile: Dockerfile
+    expose:
+      - 8082
+    ports:
+      - 8082:8082
+    restart: always
+    networks:
+      - api-transferencia
+    labels:
+      org.label-schema.group: "transferencia"
+
+  api_cadastro:
+    container_name: api-cadastro
+    image: springbatch-img
+    build:
+      context: ./apisMock/api-cadastro/
+      dockerfile: Dockerfile
+    expose:
+      - 8081
+    ports:
+      - 8081:8081
+    restart: always
+    networks:
+      - api-transferencia
+    labels:
+      org.label-schema.group: "transferencia"
+
   mssql:
     image: mcr.microsoft.com/mssql/server:2019-latest
     container_name: mssql
@@ -20,9 +52,9 @@ services:
     ports:
       - "1433:1433"
     networks:
-      - observability-network
+      - api-transferencia
     labels:
-      org.label-schema.group: "observability"
+      org.label-schema.group: "transferencia"
     
   prometheus:
     image: prom/prometheus:v2.17.1
@@ -43,9 +75,9 @@ services:
     ports:
       - "9090:9090"
     networks:
-      - observability-network
+      - api-transferencia
     labels:
-      org.label-schema.group: "observability"
+      org.label-schema.group: "transferencia"
   
   grafana:
     image: grafana/grafana:9.2.0
@@ -63,9 +95,9 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - observability-network
+      - api-transferencia
     labels:
-      org.label-schema.group: "observability"
+      org.label-schema.group: "transferencia"
 
   cache:
     image: redis:6.2-alpine
@@ -86,5 +118,5 @@ volumes:
     
 
 networks: 
-  observability-network:
+  api-transferencia:
     driver: bridge
