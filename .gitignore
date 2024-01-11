@@ -1,0 +1,8 @@
+/.idea/
+/servicos/target/
+/sistema/target/
+/desktop/target/
+/resources/target/
+/api/target/
+/docker-observability/data/mssql/
+/logs/app.log
