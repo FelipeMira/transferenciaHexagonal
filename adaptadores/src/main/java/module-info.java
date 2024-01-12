@@ -8,6 +8,9 @@ module adaptadores {
     requires modelmapper;
     requires spring.context;
     requires spring.data.redis;
+    requires spring.rabbit;
+    requires spring.amqp;
+    requires com.google.gson;
 
     exports conta.adaptadores.domain.cadastro.response;
     exports conta.adaptadores.repositorio;

@@ -13,7 +13,7 @@ public class BacenController {
 
 
     @PostMapping
-    public ResponseEntity<?> get(@RequestBody TransferenciaBacenRequest transferenciaBacenRequest) {
+    public ResponseEntity<?> post(@RequestBody TransferenciaBacenRequest transferenciaBacenRequest) {
 
         if(isNull(transferenciaBacenRequest)){
             System.out.println("API MOCK para envio ao BACEN, objeto enviado nulo.");
