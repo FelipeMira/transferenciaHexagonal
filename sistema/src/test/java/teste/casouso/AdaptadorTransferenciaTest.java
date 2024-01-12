@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class AdaptadorTransferenciaTest {
     Integer contaCredito = 10;
     Integer contaDebito = 20;
-    Integer contaInexistente = 30;
+    Integer contaInexistente = 40;
     BigDecimal cem = new BigDecimal(100);
     BigDecimal cinquenta = new BigDecimal(50);
     @Inject
@@ -28,10 +28,10 @@ public class AdaptadorTransferenciaTest {
     @DisplayName("Pesquisa conta com numero nulo")
     void pesquisaContaComNumeroNulo() {
         try {
-            var conta = porta.getConta(null);
-            assertNull(conta, "Conta deve ser nula");
-        } catch (NegocioException e) {
+            porta.getConta(null);
             fail("Deve carregar uma conta nula.");
+        } catch (NegocioException e) {
+            assertEquals(e.getMessage(), "Numero da conta e obrigatorio.");
         }
     }
 
@@ -40,9 +40,10 @@ public class AdaptadorTransferenciaTest {
     void pesquisaContaComNumeroInexistente() {
         try {
             var conta = porta.getConta(contaInexistente);
-            assertNull(conta, "Conta deve ser nula");
-        } catch (NegocioException e) {
             fail("Deve carregar uma conta nula.");
+        } catch (NegocioException e) {
+            assertEquals(e.getMessage(), contaInexistente + " e inexistente.");
+
         }
     }
 
@@ -103,7 +104,7 @@ public class AdaptadorTransferenciaTest {
             porta.transferir(contaInexistente, contaCredito, cinquenta);
             fail("Conta debito inexistente");
         } catch (NegocioException e) {
-            assertEquals(e.getMessage(), "Conta debito e inexistente.");
+            assertEquals("Conta debito e inexistente.", e.getMessage());
             System.out.println(e.getMessage());
         }
     }
@@ -115,7 +116,7 @@ public class AdaptadorTransferenciaTest {
             porta.transferir(contaDebito, contaInexistente, cinquenta);
             fail("Conta credito e inexistente");
         } catch (NegocioException e) {
-            assertEquals(e.getMessage(), "Conta credito e inexistente.");
+            assertEquals("Conta credito e inexistente.", e.getMessage());
             System.out.println(e.getMessage());
         }
     }

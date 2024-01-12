@@ -8,3 +8,5 @@
 /docker-transferencia/data/
 /docker-transferencia/apisMock/api-bacen/.idea/
 /docker-transferencia/apisMock/api-cadastro/.idea/
+/.vscode/
+/adaptadores/target/

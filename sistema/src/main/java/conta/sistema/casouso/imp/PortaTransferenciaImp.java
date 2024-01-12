@@ -34,6 +34,9 @@ public class PortaTransferenciaImp implements PortaTransferencia {
 
     @Override
     public Conta getConta(Integer numero) {
+        if(isNull(numero)){
+            obrigatorio("Numero da conta");
+        }
         var conta = repositorio.get(numero);
         if(isNull(conta)){
             inexistente(numero.toString());

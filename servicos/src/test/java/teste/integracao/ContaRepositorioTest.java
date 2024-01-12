@@ -1,5 +1,6 @@
 package teste.integracao;
 
+import conta.sistema.dominio.modelo.Correntista;
 import conta.sistema.dominio.modelo.NegocioException;
 import conta.sistema.porta.ContaRepositorio;
 import org.junit.jupiter.api.DisplayName;
@@ -75,7 +76,7 @@ public class ContaRepositorioTest {
         try {
             var c1 = rep.get(1);
             c1.setSaldo(new BigDecimal("100.00"));
-            c1.setCorrentista("Anny Banco teste");
+            c1.setCorrentista(new Correntista(1,"Anny Banco teste"));
             rep.update(c1);
             var c2 = rep.get(2);
             assertEquals(c1.getSaldo(), c2.getSaldo(), "Deve bater o saldo");

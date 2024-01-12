@@ -12,10 +12,15 @@ module adaptadores {
     requires spring.amqp;
     requires com.google.gson;
 
-    exports conta.adaptadores.domain.cadastro.response;
+    exports conta.adaptadores.config;
     exports conta.adaptadores.repositorio;
     exports conta.adaptadores.interfaces;
+    exports conta.adaptadores.domain.cadastro.response;
+    exports conta.adaptadores.domain.bacen.request;
 
+    opens conta.adaptadores.config;
     opens conta.adaptadores.repositorio;
     opens conta.adaptadores.interfaces;
+    opens conta.adaptadores.domain.cadastro.response;
+    opens conta.adaptadores.domain.bacen.request;
 }

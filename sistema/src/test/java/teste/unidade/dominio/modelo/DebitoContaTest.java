@@ -1,23 +1,26 @@
 package teste.unidade.dominio.modelo;
 
 import conta.sistema.dominio.modelo.Conta;
+import conta.sistema.dominio.modelo.Correntista;
 import conta.sistema.dominio.modelo.NegocioException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @DisplayName("Regra de Debito de Conta")
 public class DebitoContaTest {
     // armazena o saldo para teste ficar dinamico
-    BigDecimal cem = new BigDecimal(1000);
+    BigDecimal cem = new BigDecimal(700);
     Conta contaValida;
 
     @BeforeEach
     void prepara() {
-        contaValida = new Conta(1, cem, "Fernando");
+        contaValida = new Conta(10, cem, new Correntista(1), 1, LocalDate.now().minusDays(1), new BigDecimal(1000));
     }
     
     // negativos
