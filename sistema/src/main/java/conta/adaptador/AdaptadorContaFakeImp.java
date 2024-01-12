@@ -18,7 +18,7 @@ public class AdaptadorContaFakeImp implements ContaRepositorio {
     private final Map<Integer, Conta> banco = new HashMap<>();
 
     public AdaptadorContaFakeImp() {
-        banco.put(10, new Conta(10, new BigDecimal(2000), new Correntista(1), 1, LocalDate.now().minusDays(1), new BigDecimal(1000)));
+        banco.put(10, new Conta(10, new BigDecimal(100), new Correntista(1), 1, LocalDate.now().minusDays(1), new BigDecimal(1000)));
         banco.put(20, new Conta(20, new BigDecimal(100), new Correntista(2), 1, LocalDate.now().minusDays(1), new BigDecimal(1000)));
         banco.put(30, new Conta(30, new BigDecimal(100), new Correntista(3), 0, LocalDate.now().minusDays(1), new BigDecimal(1000)));
     }

@@ -14,3 +14,12 @@ spring:
       dialect: org.hibernate.dialect.SQLServer2012Dialect
       naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
     show-sql: true
+
+  cloud:
+    openfeign:
+      client:
+        config:
+          cadastro:
+            url: http://localhost:8081/api/cadastros/
+          bacen:
+            url: http://localhost:8082/api/bacen/transferencia/
