@@ -1,6 +1,6 @@
-package br.com.felipemira.controller;
+package br.com.felipemira.bacen.controller;
 
-import br.com.felipemira.model.TransferenciaBacenRequest;
+import br.com.felipemira.bacen.model.TransferenciaBacenRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
