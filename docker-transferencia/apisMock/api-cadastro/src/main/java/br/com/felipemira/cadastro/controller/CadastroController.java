@@ -1,6 +1,6 @@
-package br.com.felipemira.controller;
+package br.com.felipemira.cadastro.controller;
 
-import br.com.felipemira.domain.Correntista;
+import br.com.felipemira.cadastro.domain.Correntista;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

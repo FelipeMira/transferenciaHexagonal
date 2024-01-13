@@ -1,4 +1,4 @@
-package br.com.felipemira.model;
+package br.com.felipemira.bacen.model;
 
 import lombok.*;
 

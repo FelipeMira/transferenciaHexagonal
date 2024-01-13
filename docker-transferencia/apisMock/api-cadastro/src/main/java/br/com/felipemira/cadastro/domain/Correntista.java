@@ -1,4 +1,4 @@
-package br.com.felipemira.domain;
+package br.com.felipemira.cadastro.domain;
 
 import lombok.*;
 

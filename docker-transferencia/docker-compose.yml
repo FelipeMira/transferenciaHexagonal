@@ -4,7 +4,7 @@ services:
 
   api_bacen:
     container_name: api-bacen
-    image: springbatch-img
+    image: api-bacen-img
     build:
       context: ./apisMock/api-bacen/
       dockerfile: Dockerfile
@@ -20,7 +20,7 @@ services:
 
   api_cadastro:
     container_name: api-cadastro
-    image: springbatch-img
+    image: api-cadastro-img
     build:
       context: ./apisMock/api-cadastro/
       dockerfile: Dockerfile
